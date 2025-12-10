@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>惊喜</title>
+    <style>
+        /* 页面整体布局：居中显示 */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+
+        /* 按钮样式 */
+        .surprise-btn {
+            padding: 20px 40px;
+            font-size: 24px;
+            color: white;
+            background-color: #ff4757;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .surprise-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 71, 87, 0.6);
+        }
+
+        .surprise-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* 弹窗背景遮罩 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none; /* 默认隐藏 */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* 弹窗内容区域 */
+        .modal-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 80%;
+            animation: popIn 0.3s ease-out;
+        }
+
+        /* 弹出来的文字样式 */
+        .modal-text {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        /* 关闭按钮 */
+        .close-btn {
+            padding: 10px 25px;
+            font-size: 16px;
+            background-color: #2ed573;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* 弹窗出来的动画 */
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 这里的按钮 -->
+    <button class="surprise-btn" onclick="showSurprise()">🎁 点开有惊喜</button>
+
+    <!-- 这里是隐藏的弹窗 -->
+    <div class="modal-overlay" id="myModal">
+        <div class="modal-content">
+            <p class="modal-text">刘廷旭是傻逼</p>
+            <button class="close-btn" onclick="closeModal()">我知道了</button>
+        </div>
+    </div>
+
+    <script>
+        // 显示弹窗的函数
+        function showSurprise() {
+            document.getElementById('myModal').style.display = 'flex';
+        }
+
+        // 关闭弹窗的函数
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
